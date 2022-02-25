@@ -41,9 +41,6 @@ INSTALLED_APPS = [
     'books',
     'categories',
     'possessed_books',
-    'reserved_books',
-    'students',
-    'users',
 ]
 
 MIDDLEWARE = [
@@ -128,6 +125,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# custom settings
-AUTH_USER_MODEL= 'users.User'
