@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'books',
     'categories',
     'possessed_books',
+    'patrons',
+    'students',
 ]
 
 MIDDLEWARE = [
