@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'possessed_books',
     'patrons',
     'students',
+    'rest_framework_simplejwt',
 ]
 
 MIDDLEWARE = [
@@ -130,3 +131,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Custom settings
 AUTH_USER_MODEL= 'patrons.Patron'
+
+REST_FRAMEWORK= {
+    'DEFAULT_AUTHENTICATION_CLASSES':('rest_framework_simplejwt.authentication.JWTAuthentication',)
+}

@@ -1,9 +1,21 @@
 from django.http import Http404
 from rest_framework import status
 from patrons.models import Patron
+from django.contrib.auth import authenticate
 from rest_framework.response import Response
 from rest_framework.decorators import APIView
-from patrons.serializers import PatronSerializer,RegisterSerializer
+from patrons.serializers import PatronSerializer,RegisterSerializer,LoginSerializer
+
+class LoginAPIView(APIView):
+    def post(self,request):
+        username= request.data.get('username')
+        password= request.data.get('password')
+        user= authenticate(username=username,password=password)
+        
+        if user is not None:
+            serializer= LoginSerializer(user=user)
+            return Response(serializer.data,status=status.HTTP_200_OK)
+        return Response({'message':'Invalid Credentials'},status=status.HTTP_401_UNAUTHORIZED)
 
 class PatronAPIView(APIView):
     def get(self,request):
